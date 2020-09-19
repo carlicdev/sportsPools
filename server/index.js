@@ -14,6 +14,7 @@ app.set('PORT', process.env.PORT || 5000 );
 require('./db/db');
 
 // Routers
+const usersRouter = require('./routes/users');
 
 // Middleware
 app.use(cors());
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, './client/build')));
 // Passport
 
 // Api
+app.use('/api/users', usersRouter);
 
 // Start server
 app.listen(app.get('PORT'), () => {
