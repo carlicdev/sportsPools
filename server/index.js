@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
 
@@ -26,8 +28,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, './client/build')));
 
 // Sessions
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+);
 
 // Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Api
 app.use('/api/users', usersRouter);

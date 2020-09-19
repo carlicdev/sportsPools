@@ -118,7 +118,7 @@ const SignupForm = () => {
                         }
                     </div>
                 </div>
-                <button type='submit' className='rounded py-1 bg-blue-700 focus:outline-none  w-full text-gray-100 shadow mt-2 hover:bg-blue-600'>
+                <button type='submit' className='font-medium rounded py-1 bg-blue-700 focus:outline-none  w-full text-gray-100 shadow mt-2 hover:bg-blue-600'>
                     REGISTER
                 </button>
             </form>
