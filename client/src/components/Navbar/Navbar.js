@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFootballBall } from 'react-icons/fa';
 import NavLink from './NavLink';
 
@@ -6,7 +7,11 @@ const Navbar = () => {
     return (
         <div>
             <div className='bg-blue-900 w-full p-2'>
-                <div className='text-2xl text-gray-100 font-semibold'>Sports <span className='text-orange-700'><FaFootballBall className='inline mb-2' size={35}/></span> Pools</div>
+                <div className='text-2xl text-gray-100 font-medium logo'>
+                    <Link to='/'>
+                        Sports <span className='text-orange-600'><FaFootballBall className='inline mb-2' size={35}/></span> Pools
+                    </Link>
+                </div>
             </div>
             <div className='flex justify-center bg-blue-800 w-full p-1 text-gray-200'>
                     <NavLink title='POOLS' 
