@@ -7,6 +7,8 @@ import UserCard from './components/Cards/UserCard';
 import LinksCard from './components/Cards/LinksCard';
 import SignupForm from './components/UserForms/SignupForm';
 import Footer from './components/Footer/Footer';
+import Picksheet from './components/Picks/Picksheet';
+import JoinPool from './components/Pools/JoinPool';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Switch>
             <Route exact path='/' use component={Home} />
             <Route exact path='/signup' use component={SignupForm} />
+            <Route exact path='/join-pool' use component={JoinPool} />
+            <Route exact path='/place-picks' use component={Picksheet} />
           </Switch>
         </div>
         <div className='col-span-1 p-5'>

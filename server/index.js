@@ -17,6 +17,9 @@ require('./db/db');
 
 // Routers
 const usersRouter = require('./routes/users');
+const poolsRouter = require('./routes/pools');
+const weeksRouter = require('./routes/weeks');
+const teamsRouter = require('./routes/teams');
 
 // Middleware
 app.use(cors());
@@ -42,6 +45,9 @@ app.use(passport.session());
 
 // Api
 app.use('/api/users', usersRouter);
+app.use('/api/pools', poolsRouter);
+app.use('/api/weeks', weeksRouter);
+app.use('/api/teams', teamsRouter);
 
 // Start server
 app.listen(app.get('PORT'), () => {
