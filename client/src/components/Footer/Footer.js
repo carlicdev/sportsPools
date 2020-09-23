@@ -14,30 +14,60 @@ const Footer = () => {
                     <div className='flex flex-wrap max-w-xl mr-1 ml-auto'>
                         <div className='container text-justify md:w-1/4 w-full mb-5 '>
                             <div className='font-medium mb-4 text-gray-200'>POOLS</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Pools Home</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>My Pools</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Create Pool</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Join Pool</div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='pools'>Pools Home</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='my-pools'>My Pools</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='new-pool'>New Pool</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='join-pool'>Join Pool</Link>
+                            </div>
                         </div>
                         <div className='container text-justify md:w-1/4 w-full mb-5'>
                             <div className='font-medium mb-4 text-gray-200'>PICKS</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Place Picks</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>My Picks</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Pool Picks</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Picks History</div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='place-picks'>Place Picks</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='my-picks'>My Picks</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='pool-picks'>Pool Picks</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='picks-history'>Picks History</Link>
+                            </div>
                         </div>
                         <div className='container text-justify md:w-1/4 w-full mb-5'>
                             <div className='font-medium mb-4 text-gray-200'>REPORTS</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Standings</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>League Scores</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Spread</div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='standings'>Standings</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='league-scores'>League Scores</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='spread'>Spread</Link>
+                            </div>
                         </div>
                         <div className='container text-justify md:w-1/4 w-full mb-5'>
                             <div className='font-medium mb-4 text-gray-200'>HELP</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Rules</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>FAQs</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>TOS</div>
-                            <div className='text-sm text-gray-400 font-thin mb-1'>Contact</div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='rules'>Rules</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='faqs'>FAQs</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='tos'>TOS</Link>
+                            </div>
+                            <div className='text-sm text-gray-400 font-thin mb-1'>
+                                <Link to='contact'>Contact</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
