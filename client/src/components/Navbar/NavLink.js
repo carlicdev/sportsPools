@@ -20,7 +20,7 @@ const NavLink = (props) => {
                             {
                                 links.map(link => {
                                     return (
-                                            <Link to={link.slug} key={link.name}>
+                                            <Link to={link.slug} key={link.name} onClick={() => setIsOpen(!isOpen)}>
                                                 <li className='hover:bg-blue-800 rounded my-1 p-2'>
                                                         {link.name}
                                                 </li>

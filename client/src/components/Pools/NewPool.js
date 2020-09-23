@@ -66,7 +66,7 @@ const NewPool = () => {
                                 <div className='text-xs text-red-700 font-thin text-left'>{serverMsg.login}</div>
                             )
                         }
-                        <button type='submit' className='rounded font-medium py-1 bg-blue-800 focus:outline-none  w-full text-gray-100 shadow mt-3 hover:bg-blue-700'>
+                        <button type='submit' className='rounded font-medium py-1 bg-green-600 focus:outline-none  w-full text-gray-100 shadow mt-3 hover:bg-green-700'>
                             CREATE POOL
                         </button>
                     </form>
