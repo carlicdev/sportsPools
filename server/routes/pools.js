@@ -6,6 +6,9 @@ const poolsController = require('../controllers/pools');
 // Get all pools
 router.get('/', poolsController.get_all_pools);
 
+// Get single pool
+router.get('/:slug', poolsController.get_single_pool);
+
 // Create new pool
 router.post('/new-pool', isAuthenticated, poolsController.new_pool);
 

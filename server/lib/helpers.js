@@ -27,6 +27,19 @@ const helpers = {
         return errors;
     },
 
+    handleNewPoolErrors: function(err) {
+        let errors = {name: '', league: ''};
+
+        // Check for missing fields
+        if(err.message.includes('Pool validation failed')) {
+            Object.values(err.errors).forEach(({properties}) => {
+                errors[properties.path] = properties.message
+            });
+        }
+
+        return errors;
+    }
+
 
 
 };

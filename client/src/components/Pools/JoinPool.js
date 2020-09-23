@@ -17,7 +17,7 @@ const JoinPool = () => {
         if (res.status !== 201) {
             setServerMsg(data.msg)
         } else {
-            console.log(data.msg)
+            setServerMsg(null);
         }
     }
 

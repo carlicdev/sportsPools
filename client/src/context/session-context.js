@@ -4,6 +4,7 @@ export const SessionContext = createContext();
 
 const SessionContextProvider = (props) => {
     const [user, setUser] = useState(null);
+    const [myPools, setMyPools] = useState(null);
 
     useEffect(() => {
         getUser();
@@ -12,7 +13,13 @@ const SessionContextProvider = (props) => {
     const getUser = async () => {
         const res = await fetch('/api/users/');
         const data = await res.json()
-        setUser(data.user)
+        if (data.user) {
+            setUser(data.user.username);
+            setMyPools(data.user.pools);
+        } else {
+            setUser(null);
+            setMyPools(null);
+        }
     };
 
     const _login = async (username, password) => {
@@ -31,10 +38,10 @@ const SessionContextProvider = (props) => {
         getUser();
     } 
 
-    console.log({user})
     return (
         <SessionContext.Provider value={{
             user,
+            myPools,
             _login,
             _logout
             }}>

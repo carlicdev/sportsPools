@@ -1,9 +1,10 @@
 const User = require('../models/user');
+const Pool = require('../models/pool');
 const { handleErrors } = require('../lib/helpers')
 
 exports.get_user = async (req, res) => {
     if (req.user) {
-        res.status(200).json({user: req.user.username});
+        res.status(200).json({user: {username: req.user.username, pools: req.user.pools}});
     } else {
         res.status(200).json({user: null});
     }

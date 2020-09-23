@@ -1,9 +1,25 @@
 const Pool = require('../models/pool');
+const User = require('../models/user');
+
+const { handleNewPoolErrors } = require('../lib/helpers');
 
 // Get all pools
 exports.get_all_pools = async (req, res) => {
     const pools = await Pool.find();
     res.status(200).json({pools})
+};
+
+// Get single pool
+exports.get_single_pool = async (req, res) => {
+    try {
+        const pool = await Pool.findOne({slug: req.params.slug})
+            .populate('commish', 'username')
+            .deepPopulate('participants.userId');
+        res.status(200).json({pool})
+    } catch(err) {
+        console.log(err);
+        res.sendStatus(400)
+    }
 }
 
 // Create new pool
@@ -20,8 +36,8 @@ exports.new_pool = async (req, res) => {
             poolDetails: pool
         });
     } catch(err) {
-        console.log(err);
-        res.sendStatus(400);
+        const errors = handleNewPoolErrors(err);
+        res.status(400).json({errors})
     }
 };
 
@@ -39,7 +55,7 @@ exports.join_pool = async (req, res) => {
 
         // copy pool participants and check if user is already registered
         const poolParticipants = [...pool.participants]
-        const alreadyIn = poolParticipants.find(i => i.toString() === req.user._id.toString());
+        const alreadyIn = poolParticipants.find(i => i.userId.toString() === req.user._id.toString());
         if (alreadyIn) {
             res.status(403).json({
                 msg: 'Sorry you are already registered in this pool. One registration per user.'
@@ -47,21 +63,44 @@ exports.join_pool = async (req, res) => {
             return;
         }
 
-        // Register new participant
+        // Register new participant in pool
         try {
-            poolParticipants.push(req.user._id);
+            const newParticipant = {userId: req.user._id};
+            poolParticipants.push(newParticipant);
             await Pool.findOneAndUpdate({_id: req.body.poolId}, {
                 $set:{
                     participants: poolParticipants
                 }
             })
-            res.status(201).json({msg: 'Welcome to pool'})
         } catch(err) {
-            console.log(err);
             res.status(400).json({
                 msg: 'Oops! Please try again'
             })
         }
+
+        // Update user.pools[]
+        try {
+            const user = await User.findById(req.user._id)
+            const updatePools = [...user.pools];
+            const newPool = {
+                _id: pool._id,
+                name: pool.name,
+                commish: pool.commish,
+                slug: pool.name.toLowerCase().replace(/ /g, '-')
+            }
+            updatePools.push(newPool);
+            await User.findOneAndUpdate({_id: req.user._id}, {
+                $set: {
+                    pools: updatePools
+                }
+            })
+            res.status(201).json({msg: 'Welcome to pool'})
+        } catch(err) {
+            res.status(400).json({
+                msg: 'Oops! Please try again'
+            })
+        }
+
     } catch(err) {
         // Incorrect pool ID syntax
         console.log(err);

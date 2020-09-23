@@ -25,7 +25,7 @@ const strategy = new LocalStrategy(
             }
             // success
             return done(null, user);
-        });
+        })
     }
 );
 

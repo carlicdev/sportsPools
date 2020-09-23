@@ -18,7 +18,7 @@ const Navbar = () => {
                         links={[
                             {name: 'Pool Home', slug: '/pool'}, 
                             {name: 'My Pools', slug: '/my-pools'},
-                            {name: 'Start Pool', slug: '/start-pool'},
+                            {name: 'New Pool', slug: '/new-pool'},
                             {name: 'Join Pool', slug: '/join-pool'}
                         ]} 
                     />

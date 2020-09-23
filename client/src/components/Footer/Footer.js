@@ -4,7 +4,7 @@ import { FaFootballBall } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className='w-full bg-blue-800 p-5 flex flex-wrap'>
+        <div className='w-full bg-blue-800 p-5 flex flex-wrap mt-10'>
                 <div className='text-2xl text-gray-100 font-medium logo text-left lg:self-center lg:mx-auto'>
                     <Link to='/'>
                         Sports <span className='text-orange-600'><FaFootballBall className='inline mb-2' size={35}/></span> Pools

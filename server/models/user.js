@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
+const { ObjectId } = Schema.Types;
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
@@ -28,7 +30,10 @@ const userSchema = new Schema({
     role: {
         type: String,
         default: 'user'
-    }
+    },
+    pools: [{
+        pool: {type: ObjectId, ref: 'Pool'}
+    }]
 });
 
 // Schema methods

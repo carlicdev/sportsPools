@@ -8,7 +8,10 @@ import LinksCard from './components/Cards/LinksCard';
 import SignupForm from './components/UserForms/SignupForm';
 import Footer from './components/Footer/Footer';
 import Picksheet from './components/Picks/Picksheet';
+import MyPools from './components/Pools/MyPools';
+import PoolDetails from './components/Pools/PoolDetails';
 import JoinPool from './components/Pools/JoinPool';
+import NewPool from './components/Pools/NewPool';
 
 function App() {
   return (
@@ -19,7 +22,10 @@ function App() {
           <Switch>
             <Route exact path='/' use component={Home} />
             <Route exact path='/signup' use component={SignupForm} />
+            <Route exact path='/my-pools' use component={MyPools} />
+            <Route path='/my-pools/:slug' use component={PoolDetails} />
             <Route exact path='/join-pool' use component={JoinPool} />
+            <Route exact path='/new-pool' use component={NewPool} />
             <Route exact path='/place-picks' use component={Picksheet} />
           </Switch>
         </div>

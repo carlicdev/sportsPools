@@ -35,7 +35,7 @@ const LoginForm = () => {
                 <div className='text-right text-xs font-thin text-gray-800'>
                     Forgot password?
                 </div>
-                <button type='submit' className='rounded font-medium py-1 bg-blue-800 focus:outline-none  w-full text-gray-100 shadow mt-2 hover:bg-blue-700'>
+                <button type='submit' className='rounded font-medium py-1 bg-green-600 focus:outline-none  w-full text-gray-100 shadow mt-2 hover:bg-green-700'>
                     LOGIN
                 </button>
                 <div className='text-gray-800 text-sm mt-2 '>
