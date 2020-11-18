@@ -52,8 +52,9 @@ const NewPool = () => {
                             name='league'
                             value={league}
                             onChange={(e) => setLeague(e.target.value)}
+                            placeholder='League'
                         >
-                            <option value={''}>-</option>
+                            <option value={''} >-</option>
                             <option value={'NFL'}>NFL</option>
                         </select>
                         {

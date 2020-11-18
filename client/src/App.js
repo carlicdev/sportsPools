@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -12,12 +12,15 @@ import MyPools from './components/Pools/MyPools';
 import PoolDetails from './components/Pools/PoolDetails';
 import JoinPool from './components/Pools/JoinPool';
 import NewPool from './components/Pools/NewPool';
+import Modal from './components/Modal/Modal';
 
 function App() {
+
   return (
     <div className="App">
+      <Modal />
       <Navbar />
-      <div className='grid grid-cols-3'>
+      <div className='grid lg:grid-cols-3 grid-cols-1'>
         <div className='col-span-2'>
           <Switch>
             <Route exact path='/' use component={Home} />
